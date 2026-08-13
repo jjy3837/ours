@@ -1,0 +1,13 @@
+node_modules/
+dist/
+
+# SQLite 데이터베이스 (시딩으로 재생성 가능)
+server/data/*.db
+server/data/*.db-shm
+server/data/*.db-wal
+
+.env
+.env.local
+
+.DS_Store
+Thumbs.db

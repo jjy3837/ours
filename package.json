@@ -1,0 +1,27 @@
+{
+  "name": "words-for-us",
+  "version": "1.0.0",
+  "private": true,
+  "description": "우리를 위한 한마디 — 익명으로 조언을 남기고 받아가는 웹 서비스",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c yellow,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "seed": "npm run seed --workspace server",
+    "seed:reset": "npm run seed:reset --workspace server",
+    "db:check": "npm run db:check --workspace server",
+    "build": "npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "serve": "npm run build && npm run start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=23.4.0"
+  }
+}

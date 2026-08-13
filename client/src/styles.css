@@ -1,0 +1,433 @@
+:root {
+  --orange: #f4a261;
+  --orange-deep: #e76f51;
+  --ivory: #fff8f0;
+  --ivory-deep: #f6e7d8;
+  --ink: #4a3728;
+  --ink-muted: #9a8778;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-pill: 999px;
+
+  font-family: 'Pretendard Variable', Pretendard, 'NanumSquareRound', system-ui,
+    -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif;
+  color: var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 0%, #fff4e4 0%, var(--ivory) 45%, #fdeede 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+.app--closing {
+  padding: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- 카드 ---------- */
+
+.card {
+  width: min(560px, 100%);
+  background: #fffdfa;
+  border: 1px solid rgba(231, 111, 81, 0.14);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px 32px;
+  box-shadow: 0 24px 60px -28px rgba(120, 72, 40, 0.4);
+  animation: rise 0.45s ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.card__eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--orange-deep);
+}
+
+.card__title {
+  margin: 0;
+  font-size: clamp(1.25rem, 3.4vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.card__description {
+  margin: 12px 0 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  word-break: keep-all;
+}
+
+/* ---------- 진행 표시 ---------- */
+
+.progress {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.progress__dot {
+  height: 6px;
+  flex: 1;
+  border-radius: var(--radius-pill);
+  background: var(--ivory-deep);
+  transition: background-color 0.3s ease;
+}
+
+.progress__dot.is-active {
+  background: linear-gradient(90deg, var(--orange), var(--orange-deep));
+}
+
+/* ---------- Step 1 ---------- */
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 10px 22px -12px rgba(231, 111, 81, 0.9);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1.5px solid var(--ivory-deep);
+  border-radius: var(--radius-md);
+  background: var(--ivory);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textarea::placeholder {
+  color: #c3b0a0;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(244, 162, 97, 0.18);
+}
+
+.examples {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: #fff4e7;
+  border: 1px dashed rgba(231, 111, 81, 0.28);
+}
+
+.examples__label {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--orange-deep);
+}
+
+.examples__list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #a08a78;
+  word-break: keep-all;
+}
+
+.examples__list li::marker {
+  color: var(--orange);
+}
+
+.form__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.form__meta .is-warning {
+  color: var(--orange-deep);
+  font-weight: 700;
+}
+
+.alert {
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: #fdece6;
+  color: #b5432a;
+  font-size: 0.9rem;
+  font-weight: 600;
+  word-break: keep-all;
+}
+
+/* ---------- Step 2 ---------- */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.category-grid .button--category:last-child {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Step 3 ---------- */
+
+.quote-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 190px;
+  margin-top: 24px;
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #fff6ea, #fdeadb);
+  border: 1px dashed rgba(231, 111, 81, 0.3);
+}
+
+.quote {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.75;
+  text-align: center;
+  word-break: keep-all;
+  animation: rise 0.35s ease both;
+}
+
+.quote-box__placeholder {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.quote-box__sub {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #b2a094;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.button-row .button {
+  flex: 1;
+}
+
+/* ---------- 버튼 ---------- */
+
+.button {
+  padding: 15px 22px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.button:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+.button--primary {
+  width: 100%;
+  margin-top: 6px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+  color: #fff;
+  box-shadow: 0 14px 26px -14px rgba(231, 111, 81, 0.95);
+}
+
+.button--ghost {
+  background: var(--ivory);
+  color: var(--orange-deep);
+  border: 1.5px solid rgba(231, 111, 81, 0.35);
+}
+
+.button--category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 16px;
+  background: var(--ivory);
+  border: 1.5px solid var(--ivory-deep);
+  color: var(--ink);
+}
+
+.button--category:hover {
+  background: #fff1e0;
+  border-color: var(--orange);
+  box-shadow: 0 12px 24px -16px rgba(231, 111, 81, 0.9);
+}
+
+.button--category__emoji {
+  font-size: 1.15rem;
+}
+
+/* ---------- Step 4 ---------- */
+
+.step4-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #fce7a6;
+  overflow: hidden;
+}
+
+/* 배경 사진만 별도 레이어로 두어 보정 필터가 문구까지 밝히지 않도록 한다. */
+.step4-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/closing-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(1.12) saturate(1.3);
+}
+
+.step4-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 40, 10, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  animation: fade 0.8s ease both;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.step4-quote {
+  margin: 0;
+  font-family: 'NanumSquareRound', 'Pretendard Variable', Pretendard, sans-serif;
+  font-weight: 800;
+  color: #fff8f0;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  line-height: 1.7;
+  text-align: center;
+  padding: 0 24px;
+  word-break: keep-all;
+  text-shadow: 0 2px 18px rgba(40, 24, 4, 0.55);
+}
+
+.button--closing {
+  padding: 14px 38px;
+  background: rgba(255, 248, 240, 0.92);
+  color: #7a4a1a;
+  box-shadow: 0 16px 34px -18px rgba(20, 12, 0, 0.9);
+}
+
+.button--closing:hover {
+  background: #fff8f0;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 22px 26px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
